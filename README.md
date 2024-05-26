@@ -19,7 +19,7 @@ C++ compiler that supports C++11 or later.
    ```
    git clone https://github.com/littlepeace2005/peace-json.git
    ```
-2. Include the library in your project:
+2. Include the header in your project:
    ```cpp
    #include "json.h"
    ```
