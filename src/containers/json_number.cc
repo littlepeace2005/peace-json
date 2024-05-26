@@ -11,6 +11,30 @@ JsonNumber::~JsonNumber() = default;
 JsonNumber &JsonNumber::operator=(double n) noexcept
 { m_value = n; return *this; }
 
+JsonNumber &JsonNumber::operator+=(double n) noexcept
+{ m_value += n; return *this; }
+
+JsonNumber &JsonNumber::operator-=(double n) noexcept
+{ m_value -= n; return *this; }
+
+JsonNumber &JsonNumber::operator*=(double n) noexcept
+{ m_value *= n; return *this; }
+
+JsonNumber &JsonNumber::operator/=(double n) noexcept
+{ m_value /= n; return *this; }
+
+JsonNumber &JsonNumber::operator++() noexcept
+{ ++m_value; return *this; }
+
+JsonNumber &JsonNumber::operator--() noexcept
+{ --m_value; return *this; }
+
+JsonNumber JsonNumber::operator++(int) noexcept
+{ JsonNumber temp = *this; m_value++; return temp; }
+
+JsonNumber JsonNumber::operator--(int) noexcept
+{ JsonNumber temp = *this; m_value--; return temp; }
+
 JsonNumber::operator double() const noexcept
 { return m_value; }
 
