@@ -11,7 +11,7 @@
 namespace peace
 {
 // serialization
-std::ostream &printStr(std::ostream &os, const std::string &str)
+static std::ostream &printStr(std::ostream &os, const std::string &str)
 {
     std::ios_base::fmtflags flags = os.flags();
     os << '"';
@@ -72,7 +72,7 @@ std::string Json::stringify(const Json &v)
 }
 
 // deserialization
-std::istream &consumeWhilteSpace(std::istream &is)
+static std::istream &consumeWhilteSpace(std::istream &is)
 {
     char ch;
     while (is >> ch) {
@@ -83,29 +83,13 @@ std::istream &consumeWhilteSpace(std::istream &is)
     return is;
 }
 
-std::string scanLiteral(std::istream &is)
-{
-    std::string str;
-    char ch;
-    std::ios_base::fmtflags flags = is.flags();
-    consumeWhilteSpace(is) >> std::noskipws;
-    while (is >> ch) {
-        if (ch != ',' && ch != '}' &&
-            ch != ']' && !std::isspace(ch))
-        { str.push_back(ch); continue; }
-        is.putback(ch);
-        break;
-    }
-    is.flags(flags);
-    return str;
-}
+static std::vector<Json> scanArray(std::istream &);
+static std::string scanLiteral(std::istream &);
+static double scanNumber(std::istream &);
+static std::unordered_map<std::string, Json> scanObject(std::istream &);
+static std::string scanString(std::istream &);
 
-std::vector<Json> scanArray(std::istream &);
-double scanNumber(std::istream &);
-std::unordered_map<std::string, Json> scanObject(std::istream &);
-std::string scanString(std::istream &);
-
-Json deserialize(std::istream &is)
+static Json deserialize(std::istream &is)
 {
     char ch;
     is >> ch;
@@ -130,7 +114,7 @@ Json deserialize(std::istream &is)
 std::istream &operator>>(std::istream &is, Json &n)
 { n = deserialize(is); return is; }
 
-std::vector<Json> scanArray(std::istream &is)
+static std::vector<Json> scanArray(std::istream &is)
 {
     std::vector<Json> arr;
     char ch;
@@ -149,14 +133,31 @@ std::vector<Json> scanArray(std::istream &is)
     return arr;
 }
 
-double scanNumber(std::istream &is)
+static std::string scanLiteral(std::istream &is)
+{
+    std::string str;
+    char ch;
+    std::ios_base::fmtflags flags = is.flags();
+    consumeWhilteSpace(is) >> std::noskipws;
+    while (is >> ch) {
+        if (ch != ',' && ch != '}' &&
+            ch != ']' && !std::isspace(ch))
+        { str.push_back(ch); continue; }
+        is.putback(ch);
+        break;
+    }
+    is.flags(flags);
+    return str;
+}
+
+static double scanNumber(std::istream &is)
 {
     try { return std::stod(scanLiteral(is)); }
     catch (const std::invalid_argument &)
     { throw std::runtime_error("Expected a number literal"); }
 }
 
-std::unordered_map<std::string, Json> scanObject(std::istream &is)
+static std::unordered_map<std::string, Json> scanObject(std::istream &is)
 {
     std::unordered_map<std::string, Json> obj;
     char ch;
@@ -179,7 +180,7 @@ std::unordered_map<std::string, Json> scanObject(std::istream &is)
     return obj;
 }
 
-std::string scanString(std::istream &is)
+static std::string scanString(std::istream &is)
 {
     std::string str;
     char ch;
