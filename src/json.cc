@@ -150,7 +150,6 @@ bool Json::isArray() const noexcept
 bool Json::isBoolean() const noexcept
 { return p_data->isBoolean(); }
 
-// sometimes p_data becomes a nullptr for no reason
 bool Json::isNull() const noexcept
 { return p_data->isNull(); }
 
