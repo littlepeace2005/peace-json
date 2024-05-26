@@ -113,7 +113,6 @@ This example demonstrates how to read JSON from a file, modify its content, and 
 ##### main.cc
 ```cpp
 #include <fstream>
-#include <iostream>
 #include "json.h"
 using namespace peace;
 
