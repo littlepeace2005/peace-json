@@ -13,7 +13,8 @@ namespace peace
 // serialization
 std::ostream &printStr(std::ostream &os, const std::string &str)
 {
-    os << std::hex << '"';
+    std::ios_base::fmtflags flags = os.flags();
+    os << '"';
     for (std::string::const_iterator i = str.begin(); i != str.end(); i++) {
         switch (*i){
           case '\"': case '\\': case '\b':
@@ -21,12 +22,12 @@ std::ostream &printStr(std::ostream &os, const std::string &str)
           case '\t': os << '\\'; // fall through
           default:
             if (*i < 0x20 || *i > 0x7f)
-                os << "\\u" << std::setw(4)
+                os << "\\u" << std::hex << std::setw(4)
                     << std::setfill('0') << (int)*i;
             else os << *i;
         }
     }
-    os << '"' << std::dec;
+    (os << '"').flags(flags);
     return os;
 }
 
