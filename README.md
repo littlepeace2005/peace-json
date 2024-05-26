@@ -75,11 +75,11 @@ peace::Json person = peace::JsonObject{
   {"phone_numbers", peace::JsonArray{
     peace::JsonObject{
       {"type", "home"},
-      {"number", "(212)555-1234"}
+      {"number", "212 555-1234"}
     },
     peace::JsonObject{
       {"type", "office"},
-      {"number", "(646)555-4567"}
+      {"number", "646 555-4567"}
     }
   }},
   {"children", peace::JsonArray{
