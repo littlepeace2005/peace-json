@@ -123,7 +123,7 @@ Json deserialize(std::istream &is)
         else if (str == "false") return false;
         else if (str == "null") return Json();
     }
-    throw std::runtime_error("Unexpected character in parseValue");
+    throw std::runtime_error("Unexpected character");
 }
 
 std::istream &operator>>(std::istream &is, Json &n)
