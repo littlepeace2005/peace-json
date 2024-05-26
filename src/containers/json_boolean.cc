@@ -11,6 +11,15 @@ JsonBoolean::~JsonBoolean() = default;
 JsonBoolean &JsonBoolean::operator=(bool n) noexcept
 { m_value = n; return *this; }
 
+JsonBoolean &JsonBoolean::operator&=(bool n) noexcept
+{ m_value &= n; return *this; }
+
+JsonBoolean &JsonBoolean::operator|=(bool n) noexcept
+{ m_value |= n; return *this; }
+
+JsonBoolean &JsonBoolean::operator^=(bool n) noexcept
+{ m_value ^= n; return *this; }
+
 JsonBoolean::operator bool() const noexcept
 { return m_value; }
 
