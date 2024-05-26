@@ -159,7 +159,7 @@ catch(const std::exception &e)
 ```
 
 ## Contributing
-Contributions are welcome. Please submit your pull requests to the `develop` branch.
+Contributions are welcome.
 
 ## License
 `peace-json` is licensed under the MIT License. See the LICENSE file for more details.
