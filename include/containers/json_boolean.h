@@ -15,6 +15,9 @@ public:
     ~JsonBoolean() override;
 
     JsonBoolean &operator=(bool) noexcept;
+    JsonBoolean &operator&=(bool) noexcept;
+    JsonBoolean &operator|=(bool) noexcept;
+    JsonBoolean &operator^=(bool) noexcept;
 
     operator bool () const noexcept;
 
