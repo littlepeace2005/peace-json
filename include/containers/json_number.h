@@ -14,9 +14,15 @@ public:
 
     ~JsonNumber() override;
 
-    JsonNumber &operator=(const JsonNumber &);
-    JsonNumber &operator=(JsonNumber &&) noexcept;
     JsonNumber &operator=(double) noexcept;
+    JsonNumber &operator+=(double) noexcept;
+    JsonNumber &operator-=(double) noexcept;
+    JsonNumber &operator*=(double) noexcept;
+    JsonNumber &operator/=(double) noexcept;
+    JsonNumber &operator++() noexcept;
+    JsonNumber &operator--() noexcept;
+    JsonNumber operator++(int) noexcept;
+    JsonNumber operator--(int) noexcept;
 
     operator double() const noexcept;
 
