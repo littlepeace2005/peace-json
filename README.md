@@ -138,7 +138,7 @@ int main() try
   person["address"]["postal_code"] = "10021-3100";
   person["phone_numbers"][0]["number"] = "212 555-1234";
   person["phone_numbers"][1]["number"] = "646 555-4567";
-  person["children"].asArray() = {"Catherine", "Thomas", "Trevor"};
+  person["children"] = JsonArray{"Catherine", "Thomas", "Trevor"};
 
   // write modified JSON to a file
   file.open(person["name"].asString() + ".json", std::ios_base::out);
