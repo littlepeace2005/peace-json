@@ -4,8 +4,8 @@
 `peace-json` is a lightweight, open source JSON library written in C++. It offers efficient JSON deserialization and serialization capabilities for projects requiring fast and flexible JSON handling.
 
 ## Features
-- **Fast Deserialization**: Efficiently parse JSON data.
-- **Simple Serialization**: Easily convert C++ objects back into JSON string.
+- **Fast Deserialization**: Efficiently parses JSON string.
+- **Simple Serialization**: Easily converts C++ objects back into JSON string.
 - **STL Integration**: Seamlessly integrates with C++ STL, with strings, objects, and arrays derived from `std::string`, `std::unordered_map`, and `std::vector`.
 
 ## Getting Started
@@ -53,7 +53,7 @@ std::string personStr = R"(
       "Thomas",
       "Trevor"
     ],
-    "spouse":null
+    "spouse": null
   }
 )";
 
@@ -87,13 +87,13 @@ peace::Json person = peace::JsonObject{
     "Thomas",
     "Trevor"
   }},
-  {"spouse", JsonNull()}
+  {"spouse", peace::JsonNull()}
 };
 
 std::string personStr = peace::Json::stringify(person);
 ```
 
-#### Reading from and Writing to a File
+#### Reading from and Writing to Files
 This example demonstrates how to read JSON from a file, modify its content, and then write it to stdout.
 ##### template.json
 ```json
@@ -159,7 +159,7 @@ catch(const std::exception &e)
 ```
 
 ## Contributing
-Contributions are welcome! Please submit your pull requests to the `develop` branch.
+Contributions are welcome. Please submit your pull requests to the `develop` branch.
 
 ## License
 `peace-json` is licensed under the MIT License. See the LICENSE file for more details.
