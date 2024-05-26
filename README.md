@@ -94,7 +94,7 @@ std::string personStr = peace::Json::stringify(person);
 ```
 
 #### Reading from and Writing to Files
-This example demonstrates how to read JSON from a file, modify its content, and then write it to stdout.
+This example demonstrates how to read JSON from a file, modify its content, and then write it to another file.
 ##### template.json
 ```json
 {
