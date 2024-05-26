@@ -23,6 +23,7 @@ public:
     JsonArray &operator=(JsonArray &&) noexcept;
     JsonArray &operator=(const std::vector<value_type> &);
     JsonArray &operator=(std::vector<value_type> &&) noexcept;
+    using vector::operator=;
 
 private:
     JsonBase *copySelf() const override;
