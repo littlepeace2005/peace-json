@@ -33,7 +33,7 @@ private:
     void serialize(std::ostream &) const override;
 
     friend std::ostream &operator<<(std::ostream &, const JsonBoolean &);
-    friend std::istream &operator<<(std::istream &, JsonBoolean &);
+    friend std::istream &operator>>(std::istream &, JsonBoolean &);
 };
     
 } // namespace peace
