@@ -100,7 +100,6 @@ This example demonstrates how to read JSON from a file, modify its content, and 
 {
   "name": null,
   "age": null,
-  "is_alive": null,
   "phone_numbers": [
     {"type": "home", "number": null},
     {"type": "office", "number": null}
