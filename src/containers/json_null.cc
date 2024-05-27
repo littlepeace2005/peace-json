@@ -13,8 +13,8 @@ JsonBase *JsonNull::copySelf() const
 JsonBase *JsonNull::moveSelf() &&
 { return Json::getNull(); }
 
-void JsonNull::copyTo(JsonBase *) const{}
-void JsonNull::moveTo(JsonBase *) && noexcept{}
+void JsonNull::copyTo(JsonBase *) const {}
+void JsonNull::moveTo(JsonBase *) && noexcept {}
 
 bool JsonNull::isNull() const noexcept
 { return true; }
