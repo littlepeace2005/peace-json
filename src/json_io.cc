@@ -224,13 +224,13 @@ Json Json::parse(const std::string &s)
 std::ostream &operator<<(std::ostream &os, const JsonBoolean &n)
 { os << (bool)n; return os; }
 
-std::istream &operator<<(std::istream &is, JsonBoolean &n)
+std::istream &operator>>(std::istream &is, JsonBoolean &n)
 { is >> n.m_value; return is; }
 
 std::ostream &operator<<(std::ostream &os, const JsonNumber &n)
 { os << (double)n; return os; }
 
-std::istream &operator<<(std::istream &is, JsonNumber &n)
+std::istream &operator>>(std::istream &is, JsonNumber &n)
 { is >> n.m_value; return is; }
     
 } // namespace peace
