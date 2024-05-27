@@ -28,15 +28,15 @@ public:
     Json(const JsonBase &);
     Json(JsonBase &&);
     template <typename Bool, typename std::enable_if<
-        std::is_same<Bool, bool>::value,
-    int>::type = 0> Json(Bool);
+        std::is_same<Bool, bool>::value, int>::type = 0>
+    Json(Bool);
     Json(double);
     template <typename Str, typename std::enable_if<
-        std::is_same<Str, std::string>::value,
-    int>::type = 0> Json(const Str &);
+        std::is_same<Str, std::string>::value, int>::type = 0>
+    Json(const Str &);
     template <typename Str, typename std::enable_if<
-        std::is_same<Str, std::string>::value,
-    int>::type = 0> Json(Str &&);
+        std::is_same<Str, std::string>::value, int>::type = 0> 
+    Json(Str &&);
     Json(const char *);
 
     ~Json();
@@ -46,15 +46,15 @@ public:
     Json &operator=(const JsonBase &);
     Json &operator=(JsonBase &&);
     template <typename Bool, typename std::enable_if<
-        std::is_same<Bool, bool>::value,
-    int>::type = 0> Json &operator=(Bool);
+        std::is_same<Bool, bool>::value, int>::type = 0> 
+    Json &operator=(Bool);
     Json &operator=(double);
     template <typename Str, typename std::enable_if<
-        std::is_same<Str, std::string>::value,
-    int>::type = 0> Json &operator=(const Str &);
+        std::is_same<Str, std::string>::value, int>::type = 0>
+    Json &operator=(const Str &);
     template <typename Str, typename std::enable_if<
-        std::is_same<Str, std::string>::value,
-    int>::type = 0> Json &operator=(Str &&);
+        std::is_same<Str, std::string>::value, int>::type = 0>
+    Json &operator=(Str &&);
     Json &operator=(const char *);
 
     Json &at(size_t);
