@@ -12,15 +12,15 @@ Json::Json(const Json &other)
 Json::Json(Json &&other) noexcept
 : p_data(other.p_data) { other.p_data = getNull(); }
 
-Json::Json(const JsonBase &val)
-: p_data(val.copySelf()) {}
+Json::Json(const JsonBase &base)
+: p_data(base.copySelf()) {}
 
-Json::Json(JsonBase &&val)
-: p_data(std::move(val).moveSelf()) {}
+Json::Json(JsonBase &&base)
+: p_data(std::move(base).moveSelf()) {}
 
 Json::Json(double n): Json(JsonNumber(n)) {}
 
-Json::Json(const char *str): Json(JsonString(str)) {}
+Json::Json(const char *s): Json(JsonString(s)) {}
 
 Json::~Json()
 { if (!isNull()) delete p_data; }
@@ -38,13 +38,13 @@ Json &Json::operator=(Json &&other) noexcept
     return *this;
 }
 
-Json &Json::operator=(const JsonBase &val)
+Json &Json::operator=(const JsonBase &base)
 {
-    if (p_data != &val) {
-        if (typeid(*p_data) == typeid(val))
-            val.copyTo(p_data);
+    if (p_data != &base) {
+        if (typeid(*p_data) == typeid(base))
+            base.copyTo(p_data);
         else {
-            JsonBase *ptr = val.copySelf();
+            JsonBase *ptr = base.copySelf();
             if (!isNull()) delete p_data;
             p_data = ptr;
         }
@@ -52,13 +52,13 @@ Json &Json::operator=(const JsonBase &val)
     return *this;
 }
 
-Json &Json::operator=(JsonBase &&val)
+Json &Json::operator=(JsonBase &&base)
 {
-    if (p_data != &val) {
-        if (typeid(*p_data) == typeid(val))
-            std::move(val).moveTo(p_data);
+    if (p_data != &base) {
+        if (typeid(*p_data) == typeid(base))
+            std::move(base).moveTo(p_data);
         else {
-            JsonBase *ptr = std::move(val).moveSelf();
+            JsonBase *ptr = std::move(base).moveSelf();
             if (!isNull()) delete p_data;
             p_data = ptr;
         }
@@ -87,8 +87,8 @@ Json &Json::operator=(Str &&str)
 { *this = JsonString(std::move(str)); return *this; }
 template Json &Json::operator=<std::string>(std::string &&);
 
-Json &Json::operator=(const char *str)
-{ *this = JsonString(str); return *this; }
+Json &Json::operator=(const char *s)
+{ *this = JsonString(s); return *this; }
 
 Json &Json::at(size_t pos)
 { return asArray().at(pos); }
