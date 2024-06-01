@@ -29,6 +29,8 @@ private:
     bool isNull() const noexcept override;
 
     void serialize(std::ostream &) const override;
+
+    friend class Json;
 };
     
 } // namespace peace
