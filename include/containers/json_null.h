@@ -9,7 +9,6 @@ namespace peace
 class JsonNull: public peace::JsonBase
 {
 public:
-    JsonNull();
     JsonNull(const JsonNull &) = delete;
     JsonNull(JsonNull &&) noexcept = delete;
 
@@ -17,8 +16,12 @@ public:
 
     JsonNull &operator=(const JsonNull &) = delete;
     JsonNull &operator=(JsonNull &&) noexcept = delete;
+    
+    static const JsonNull &getInstance();
 
 private:
+    JsonNull();
+
     JsonBase *copySelf() const override;
     JsonBase *moveSelf() && override;
     void copyTo(JsonBase *) const override;
