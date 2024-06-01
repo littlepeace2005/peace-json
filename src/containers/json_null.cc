@@ -20,6 +20,6 @@ bool JsonNull::isNull() const noexcept
 { return true; }
 
 const JsonNull &JsonNull::getInstance()
-{ return (JsonNull &)*Json::getNull(); }
+{ return Json::m_null; }
     
 } // namespace peace
