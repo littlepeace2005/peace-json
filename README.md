@@ -149,7 +149,6 @@ int main() try
 catch(const std::exception &e)
 {
   // exception handling
-  if (file.is_open()) file.close();
   std::cerr << e.what() << std::endl;
   return EXIT_FAILURE;
 }
