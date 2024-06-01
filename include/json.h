@@ -9,8 +9,6 @@
 #include "json_object.h"
 #include "json_string.h"
 
-#define JSON_NULL ::peace::JsonNull::getInstance()
-
 namespace peace
 {
 
@@ -20,6 +18,8 @@ class JsonNull;
 class JsonNumber;
 class JsonObject;
 class JsonString;
+
+extern const JsonNull &JsonNULL;
 
 class Json
 {
