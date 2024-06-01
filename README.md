@@ -57,7 +57,7 @@ std::string personStr = R"(
   }
 )";
 
-peace::Json person = peace::Json::parse(peronStr);
+peace::Json person = peace::Json::parse(personStr);
 ```
 
 #### Stringifying JSON
