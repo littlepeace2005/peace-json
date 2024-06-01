@@ -3,6 +3,8 @@
 namespace peace
 {
 
+const JsonNull &JsonNULL = JsonNull::getInstance();
+
 Json::Json()
 : p_data(getNull()) {}
 
