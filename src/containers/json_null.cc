@@ -3,9 +3,9 @@
 namespace peace
 {
 
-JsonNull::JsonNull() = default;
-
 JsonNull::~JsonNull() = default;
+
+JsonNull::JsonNull() = default;
 
 JsonBase *JsonNull::copySelf() const
 { return Json::getNull(); }
@@ -18,5 +18,8 @@ void JsonNull::moveTo(JsonBase *) && noexcept {}
 
 bool JsonNull::isNull() const noexcept
 { return true; }
+
+const JsonNull &JsonNull::getInstance()
+{ return (JsonNull &)*Json::getNull(); }
     
 } // namespace peace
