@@ -143,12 +143,13 @@ int main() try
     file << person; file.close();
   } else
     throw std::runtime_error("Failed to open the file");
-  
+
   return EXIT_SUCCESS;
 }
 catch(const std::exception &e)
 {
   // exception handling
+  if (file.is_open()) file.close();
   std::cerr << e.what() << std::endl;
   return EXIT_FAILURE;
 }
