@@ -87,7 +87,7 @@ peace::Json person = peace::JsonObject{
     "Thomas",
     "Trevor"
   }},
-  {"spouse", peace::JsonNull()}
+  {"spouse", peace::JsonNULL}
 };
 
 std::string personStr = peace::Json::stringify(person);
