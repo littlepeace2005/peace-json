@@ -215,22 +215,21 @@ static std::string scanString(std::istream &is)
 Json Json::parse(const std::string &s)
 {
     std::istringstream ss(s);
-    Json n;
-    ss >> n;
+    Json n; ss >> n;
     return n;
 }
 
 // JsonBoolean & JsonNumber
 std::ostream &operator<<(std::ostream &os, const JsonBoolean &n)
-{ os << (bool)n; return os; }
+{ return os << (bool)n; }
 
 std::istream &operator>>(std::istream &is, JsonBoolean &n)
-{ is >> n.m_value; return is; }
+{ return is >> n.m_value; }
 
 std::ostream &operator<<(std::ostream &os, const JsonNumber &n)
-{ os << (double)n; return os; }
+{ return os << (double)n; }
 
 std::istream &operator>>(std::istream &is, JsonNumber &n)
-{ is >> n.m_value; return is; }
+{ return is >> n.m_value; }
     
 } // namespace peace
