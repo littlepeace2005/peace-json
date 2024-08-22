@@ -1,6 +1,5 @@
 # peace-json
 
-## Introduction
 `peace-json` is a lightweight, open source JSON library written in C++. It offers efficient JSON deserialization and serialization capabilities for projects requiring fast and flexible JSON handling.
 
 ## Features
