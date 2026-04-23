@@ -40,11 +40,11 @@ std::string personStr = R"(
     "phone_numbers": [
       {
         "type": "home",
-        "number": "212 555-1234"
+        "number": "(212)555-1234"
       },
       {
         "type": "office",
-        "number": "646 555-4567"
+        "number": "(646)555-4567"
       }
     ],
     "children": [
@@ -74,11 +74,11 @@ peace::Json person = peace::JsonObject{
   {"phone_numbers", peace::JsonArray{
     peace::JsonObject{
       {"type", "home"},
-      {"number", "212 555-1234"}
+      {"number", "(212)555-1234"}
     },
     peace::JsonObject{
       {"type", "office"},
-      {"number", "646 555-4567"}
+      {"number", "(646)555-4567"}
     }
   }},
   {"children", peace::JsonArray{
@@ -132,8 +132,8 @@ int main() try
   person["address"]["city"] = "New York";
   person["address"]["state"] = "NY";
   person["address"]["postal_code"] = "10021-3100";
-  person["phone_numbers"][0]["number"] = "212 555-1234";
-  person["phone_numbers"][1]["number"] = "646 555-4567";
+  person["phone_numbers"][0]["number"] = "(212)555-1234";
+  person["phone_numbers"][1]["number"] = "(646)555-4567";
   person["children"] = JsonArray{"Catherine", "Thomas", "Trevor"};
 
   // write modified JSON to a file
